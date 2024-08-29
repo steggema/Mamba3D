@@ -11,12 +11,19 @@
 
 #include <ATen/ATen.h>
 #include <ATen/cuda/CUDAApplyUtils.cuh>  // at::cuda::getApplyGrid
-#include <THC/THC.h>
+//#include <THC/THC.h>
 
 #define CHECK_CUDA(x) TORCH_CHECK(x.type().is_cuda(), #x " must be a CUDA tensor")
 #define CHECK_CONTIGUOUS(x) TORCH_CHECK(x.is_contiguous(), #x " must be contiguous")
 #define CHECK_INPUT(x) CHECK_CUDA(x); CHECK_CONTIGUOUS(x)
 
+#define CHECK_EQ(val1, val2) \
+  TORCH_CHECK((val1) == (val2), "Check failed: ", val1, " != ", val2);
+
+#define THCudaCheck(condition) \
+  if (!(condition)) { \
+    throw std::runtime_error("CUDA Check failed: " #condition); \
+  }
 
 /********************************
 * Forward kernel for approxmatch

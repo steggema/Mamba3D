@@ -144,10 +144,10 @@ def create_experiment_dir(args):
 
 def copy_file_to_log(args, name):
     if not os.path.exists(os.path.join(args.experiment_path, name)):
-        shutil.copyfile(os.path.join('/home/Mamba3D/models', name), os.path.join(args.experiment_path, name))
+        shutil.copyfile(os.path.join('/notebooks/Mamba3D/models', name), os.path.join(args.experiment_path, name))
         print(f"Save {name} to {args.experiment_path}!")
     else:
         os.remove(os.path.join(args.experiment_path, name)) # delete existing file first
         print("Delete done!" if not os.path.exists(os.path.join(args.experiment_path, name)) else "Already existing!") 
-        shutil.copyfile(os.path.join('/home/Mamba3D/models', name), os.path.join(args.experiment_path, name))
+        shutil.copyfile(os.path.join('/notebooks/Mamba3D/models', name), os.path.join(args.experiment_path, name))
         print(f"Overwrite {name} to {args.experiment_path}!")
