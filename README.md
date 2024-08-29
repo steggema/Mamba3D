@@ -1,3 +1,22 @@
+# Fork of official Mamba3D repository with updates to more recent versions of pytorch, CUDA, and some other packages
+
+Changes
+- Updated to CUDA 12.1 and corresponding conda pytorch install (following pytorch installation guidelines along the lines of ```conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia```)
+- Updated to python 3.11 (note 3.12 does not seem to work)
+- Update to Pointnet: Fetch code from here https://github.com/evenrose/Pointnet2_PyTorch.git, then install (in directory) with ```pip install pointnet2_ops_lib/```
+
+Additional pip installs compared to main instructions below:
+```
+pip install causal-conv1d # Note no version
+pip install openTSNE
+pip install fvcore
+pip install mmcv-full
+pip install thop
+pip install mamba-ssm
+```
+
+Below is the original README.
+
 # Mamba3D 
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/mamba3d-enhancing-local-features-for-3d-point/supervised-only-3d-point-cloud-classification)](https://paperswithcode.com/sota/supervised-only-3d-point-cloud-classification?p=mamba3d-enhancing-local-features-for-3d-point)
